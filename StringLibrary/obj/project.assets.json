@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
-      "StringLibrary/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/StringLibrary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/StringLibrary.dll": {}
-        }
-      }
-    }
+    "net5.0": {}
   },
-  "libraries": {
-    "StringLibrary/1.0.0": {
-      "type": "project",
-      "path": "../StringLibrary/StringLibrary.csproj",
-      "msbuildProject": "../StringLibrary/StringLibrary.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net5.0": [
-      "StringLibrary >= 1.0.0"
-    ]
+    "net5.0": []
   },
   "packageFolders": {
     "C:\\Users\\user\\.nuget\\packages\\": {}
@@ -32,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My Docs\\Matkul Faheem Semester 5\\TCP\\client\\client.csproj",
-      "projectName": "client",
-      "projectPath": "D:\\My Docs\\Matkul Faheem Semester 5\\TCP\\client\\client.csproj",
+      "projectUniqueName": "D:\\My Docs\\Matkul Faheem Semester 5\\TCP\\StringLibrary\\StringLibrary.csproj",
+      "projectName": "StringLibrary",
+      "projectPath": "D:\\My Docs\\Matkul Faheem Semester 5\\TCP\\StringLibrary\\StringLibrary.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\My Docs\\Matkul Faheem Semester 5\\TCP\\client\\obj\\",
+      "outputPath": "D:\\My Docs\\Matkul Faheem Semester 5\\TCP\\StringLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -50,11 +31,7 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {
-            "D:\\My Docs\\Matkul Faheem Semester 5\\TCP\\StringLibrary\\StringLibrary.csproj": {
-              "projectPath": "D:\\My Docs\\Matkul Faheem Semester 5\\TCP\\StringLibrary\\StringLibrary.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
