@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;  
 using System.Net.Sockets;  
 using System.IO;  
-using MyLibrary;
+using StringLibrary;
 using System.Threading; 
 using System.Runtime.Serialization.Formatters.Binary;
 namespace Server  
@@ -25,43 +25,24 @@ namespace Server
         public void ClientListener(object obj)  
         {  
             TcpClient tcpClient = (TcpClient)obj;  
-            
+            //Player player = new Player();
             while (true)  
             {
+                
                 try
                 {
-                    BinaryFormatter binaryFormatter = new BinaryFormatter();
-                    PlayerState playerState = new PlayerState();
-                    playerState = (PlayerState) binaryFormatter.Deserialize(tcpClient.GetStream());
-                    
-                    switch (playerState.State)
-                    {
-                        case(PlayerState.state.CLONE):
-                        {
-                            BroadCast("A Clone joined the battle!");
-                            CloneTrooper cloneTrooper = new CloneTrooper();
-                            cloneTrooper = (CloneTrooper) binaryFormatter.Deserialize(tcpClient.GetStream());
-                            BroadCast("Welcome "+cloneTrooper.legion+" "+ cloneTrooper.rank);
-                            Console.WriteLine("Clone "+cloneTrooper.legion+" "+ cloneTrooper.rank+" joined the battle! Hit the clankers!");
-                            break;
-                        }
-                        case(PlayerState.state.DROID):
-                        {
-                            BroadCast("A Droid joined the battle!");
-                            BattleDroid battleDroid = new BattleDroid();
-                            battleDroid = (BattleDroid) binaryFormatter.Deserialize(tcpClient.GetStream());
-                            BroadCast("A "+battleDroid.type+" number "+ battleDroid.serialNumber+" Roger! Roger!");
-                            Console.WriteLine("Droid "+battleDroid.type+" "+ battleDroid.serialNumber+" joined the battle! Destroy those clones!");
-                            break;                
-                        }
-                    }
-
+                    Player player = new Player();
+                    BinaryFormatter binaryFormatter = new BinaryFormatter(); 
+                    player = (Player) binaryFormatter.Deserialize(tcpClient.GetStream());
+                    BroadCast("Welcome " + player.name);
+                    break;       
                 }
                 catch (Exception e)  
-                {  
+                {
+                    Player player = new Player();
                     Console.WriteLine(e.Message);  
                     program.removeClient(tcpClient);
-                    BroadCast("A player has left the server");
+                    BroadCast(player.name + " has left the server");
                     break;  
                 }  
             }
